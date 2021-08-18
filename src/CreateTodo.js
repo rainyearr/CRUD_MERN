@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 
 export const CreateTodo = () => {
-    const { register, handleSubmit } = useForm();
+    const { register , handleSubmit } = useForm();
     const history = useHistory()
     
     const onSubmit = handleSubmit((data) => {
             alert(JSON.stringify(data));
-            history.push("/")
+            history.push("./");
     });
 
 return(
