@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { Route, Switch, Link } from 'react-router-dom';
-import {TodoList} from './TodoList'
-import {CreateTodo} from './CreateTodo'
-import {EditTodo} from './EditTodo'
+import { Route, Switch, Link } from 'react-router-dom'
+import { TodoList } from './TodoList'
+import { CreateTodo } from './CreateTodo'
+import { EditTodo } from './EditTodo'
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
       </nav>
     <Switch>
       <Route exact path="/" component={TodoList}/>
-      <Route exact path="/edit/:id" component={EditTodo}/>
-      <Route exact path="/create" component={CreateTodo}/>
+      <Route path="/edit/:id" component={EditTodo}/>
+      <Route path="/create" component={CreateTodo}/>
     </Switch>
     </div>
   );
