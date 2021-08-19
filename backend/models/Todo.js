@@ -1,6 +1,4 @@
-import { Mongoose } from "mongoose";
-
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const Todo = mongoose.Schema({
 
