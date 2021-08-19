@@ -14,10 +14,10 @@ const PORT = 4000;
 
 const app = express()
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-app.get('/', (req, res)=>{
+app.get("/", (req, res)=>{
     Todo.find((err, todos)=>{
         if(err){
             console.log(err);
@@ -34,7 +34,7 @@ app.post("/create", (req, res)=>{
             res.json(todo);
         })
         .catch((err)=>{
-            res.status(500).send(ree.message);
+            res.status(500).send(err.message);
         });
 });
 
