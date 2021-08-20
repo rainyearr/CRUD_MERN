@@ -1,14 +1,14 @@
-const express = require("express")
-const cors = require("cors")
-const mongoose = require("mongoose")
-const Todo = require ("./models/Todo")
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const Todo = require ("./models/Todo");
+;
 
+mongoose.connect("mongodb://127.0.0.1:27017/todos", { useNewUrlParser: true});
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true})
-
-mongoose.connection.once('open', ()=> {
-    console.log("Mongodb connection established successfuly")
-})
+mongoose.connection.once("open", () => {
+    console.log("Mongodb connection established successfuly");
+});
 
 const PORT = 4000;
 
@@ -39,7 +39,7 @@ app.post("/create", (req, res)=>{
 });
 
 
-app.get("/:id", (req, res)=>{
+app.get("/:id", (req, res) => {
     const id = req.params.id;
     Todo.findById(id,(err, todo)=>{
         res.json(todo);
@@ -50,18 +50,20 @@ app.post("/:id", (req, res)=>{
     const id = req.params.id;
     Todo.findById(id,(err, todo)=>{
         if(!todo){
-            res.status(404).send("Todo not found")
+            res.status(404).send("Todo not found");
         }else
         {
-            todo.text = req.body.text
+            todo.text = req.body.text;
 
-            todo.save(). then (todo => {
-                res.json(todo)
+            todo
+            .save()
+            .then ((todo) => {
+                res.json(todo);
             })
             .catch((err) => res.status(500).send(err.message));
         }
     });
 });
 app.listen(PORT, ()=> {
-    console.log("Server is running on port" + PORT) 
-})
+    console.log("Server is running on port" + PORT) ;
+});

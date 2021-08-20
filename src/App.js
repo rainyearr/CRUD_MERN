@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Route, Switch, Link } from 'react-router-dom'
 import { TodoList } from './TodoList'
 import { CreateTodo } from './CreateTodo'
